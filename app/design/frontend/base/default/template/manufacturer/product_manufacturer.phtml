@@ -1,4 +1,5 @@
-<?php
+
+<?php     
 $product=$this->getProduct();
 if(Mage::getModel('eav/entity_attribute_source_table')->setAttribute(Mage::getModel('eav/entity_attribute')->load(Mage::getModel('eav/entity_attribute')->getIdByCode('catalog_product',"manufacturer")))->getOptionText($product->getData('manufacturer'))):
     $manufacturers=Mage::getModel('manufacturer/manufacturer')->getCollection()->addFieldToFilter('menufecturer_name',$product->getData('manufacturer'));
@@ -8,7 +9,7 @@ if(Mage::getModel('eav/entity_attribute_source_table')->setAttribute(Mage::getMo
 ?>
         <div class="manufacturer-img-box">
         <a href="<?php echo $this->getBaseUrl()."catalogsearch/advanced/result/?manufacturer[]=".$manufacturer->getMenufecturerName() ?>">
-        <?php echo $this->getLayout()->createBlock('core/template')->setmanufacturerimage($manufacturer->getFilename())->setmenufacturername($manufacturer->getMenufecturerName())->setTemplate('manufacturer/manufacturer_resize.phtml')->toHtml(); ?>
+        <?php echo $this->getLayout()->createBlock('core/template')->setmanufacturerimage($manufacturer->getFilename())->setlegend($manufacturer->getLegend())->setTemplate('manufacturer/manufacturer_resize.phtml')->toHtml(); ?>
         </a>
         </div>
 <?php } 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>manufacturer_brand_logo</name>
-    <version>1.1.6</version>
+    <version>1.1.7</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
@@ -33,19 +33,21 @@
 &lt;li&gt;Now, just click on the save button and that&#x2019;s it by now must have successfully upload the brand logo &lt;/li&gt;&#xD;
 &lt;/ul&gt;&#xD;
 &#xD;
+&lt;strong&gt;Note &#x2013; In case you are using a custom magento theme, then you need to add the extension folder to the theme.Follow the path like this :- &#xD;
+app/design/frontend/&lt;custom_package&gt;/&lt;custom_theme&gt;/template/extension folder&#xD;
+&lt;strong&gt;&#xD;
+&#xD;
 &lt;p&gt;&lt;strong&gt;Mentioned below is the code you need to use for displaying brand logo on product detail page&lt;/strong&gt;&lt;/p&gt;&#xD;
 &#xD;
 echo $this-&gt;getLayout()-&gt;createBlock('manufacturer/manufacturer')-&gt;setProduct($_product)-&gt;setTemplate('manufacturer/product_manufacturer.phtml')-&gt;toHtml();&#xD;
 &#xD;
 &lt;p&gt;&#xD;
 The magento extension also provides a block which displays the entire brand logos list in one page. You can use this code wherever you want the list to be displayed.&lt;/p&gt;</description>
-    <notes>- Bug Fixing &amp; Enhancement&#xD;
-- Manufacturer visible link in header panel&#xD;
-- Image upload issue while uploading image having space in name (&lt; Magento 1.5)</notes>
+    <notes>-Add new field 'legend' for image title while hover on manufacturer brand logo.</notes>
     <authors><author><name>Biztech</name><user>biztechcon</user><email>sales@biztechconsultancy.com</email></author></authors>
-    <date>2013-02-18</date>
-    <time>09:47:15</time>
-    <contents><target name="mageetc"><dir name="modules"><file name="Bc_Manufacturer.xml" hash="37fc0d87d00706eb9dcc1894056e9f54"/><file name="Bc_Bcall.xml" hash="c9f36d47e0771f3188425b077f88a056"/></dir></target><target name="magelocal"><dir name="Bc"><file name="Manufacturer" hash="d41d8cd98f00b204e9800998ecf8427e"/><file name="Bcall" hash="d41d8cd98f00b204e9800998ecf8427e"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="31a6d6c23c7dee5ea05bffd534e12b28"/></dir><dir name="template"><dir name="manufacturer"><dir><dir name="layer"><file name="filter.phtml" hash="ff241d46dbf5e264e3f2eb20fd2a78b4"/></dir></dir><file name="manufacturer.phtml" hash="bb6e7cdf32e23dd2728ff39a13309bf9"/><file name="manufacturer_resize.phtml" hash="804b384f84e752076c7da37574ef9eca"/><file name="product_manufacturer.phtml" hash="4977a98fb29cf1ac13e73d5bdab1555a"/><file name="view.phtml" hash="93f753478fe6d4fce47d8ff5776bd670"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="93ac4fe6257227dfbdfcd69804f0458b"/></dir></dir></dir></dir></target></contents>
+    <date>2013-03-14</date>
+    <time>11:28:35</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Bc_Manufacturer.xml" hash="249a2c05a5a03d448b358c7708d286e7"/><file name="Bc_Bcall.xml" hash="89be5607bd577a43766fdf8c17c03698"/></dir></target><target name="magelocal"><dir name="Bc"><dir name="Manufacturer"><dir><dir name="Block"><dir name="Adminhtml"><dir name="Grid"><dir name="Renderer1"><file name="Image.php" hash="1495538d3c82b6f24d481fff93fd1420"/></dir></dir><dir name="Manufacturer"><dir name="Edit"><file name="Form.php" hash="1320621adc17dbfb1b8983659a0a876c"/><dir name="Tab"><file name="Form.php" hash="327dde9831939364bb7af94a5c22794b"/></dir><file name="Tabs.php" hash="517ebac339c5972144ecbdfd5d36c84a"/></dir><file name="Edit.php" hash="5cf324603cbd50996ff6d988c2a5728e"/><file name="Grid.php" hash="ef2e5a5c7edabbc036f269862d0e55a2"/></dir><file name="Manufacturer.php" hash="0e14f5e8413ba076e7cdce61a0d12c89"/></dir><file name="Manufacturer.php" hash="e3782cc49c8b2bb9f8c4725d829ca379"/></dir><dir name="Helper"><file name="Data.php" hash="9893648d93d798c3ad0a71a2be630c2e"/></dir><dir name="Model"><file name="Manufacturer.php" hash="07a159edce18fa9be0969cc2295988df"/><dir name="Mysql4"><dir name="Manufacturer"><file name="Collection.php" hash="b0ff7e1a7abe2cd2c612fdd4067df99f"/></dir><file name="Manufacturer.php" hash="f8e269187b2dedd3ed3affb582aaef9a"/></dir><file name="Status.php" hash="e702ab395b380899a636fc1ffa8e76eb"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="ManufacturerController.php" hash="597d98a47cf085f42eb7e06ea0d08c0c"/></dir><file name="IndexController.php" hash="96cdf068cb8f579766eda5fb662532c2"/></dir><dir name="etc"><file name="adminhtml.xml" hash="3d6dbc767a0ec9ae673e0b3c46c29971"/><file name="config.xml" hash="08134502db3158040a2cb22c760ca9ba"/></dir><dir name="sql"><dir name="manufacturer_setup"><file name="mysql4-install-0.1.0.php" hash="22f0afe5701fdd4011855306245a97ee"/><file name="mysql4-upgrade-1.1.6-1.1.7.php" hash="9507b29fd573c0ed80adbe2eb107e96d"/></dir></dir></dir></dir><dir name="Bcall"><dir><dir name="Helper"><file name="Data.php" hash="89bd8d7b99721ceaaf31d039cd27a381"/></dir><dir name="etc"><file name="adminhtml.xml" hash="882e9a46713c18966a894e9725cf86f0"/><file name="config.xml" hash="0e927d7e64aa08c9c9033d92f0136d49"/><file name="system.xml" hash="6badfb31e8b463d82a566552104b0a03"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="efd84d71e74e164faff329425f26fab7"/></dir><dir name="template"><dir name="manufacturer"><file name="manufacturer.phtml" hash="04d01f699084f2bdf3b59ad5bfcf6d63"/><file name="manufacturer_resize.phtml" hash="57d1972f354f2bd3578b3cff924809b4"/><file name="product_manufacturer.phtml" hash="9935e24bfe395e8587bc10a666b1fbb4"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="manufacturer.xml" hash="6dea17bcb6d2ae8f5fe686ef259b7a7b"/></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

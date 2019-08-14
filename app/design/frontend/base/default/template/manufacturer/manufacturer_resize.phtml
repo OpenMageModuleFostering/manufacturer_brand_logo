@@ -1,20 +1,26 @@
 <?php
-    $manufacturer_imge=$this->getmanufacturerimage();
-    $list_page_flag=$this->getListPageFlag();
-    $manufacturer_id=$this->getmenufacturername();
-    if (!$list_page_flag){
-        $layered_navigation_dimension=explode("x",Mage::getStoreConfig('manufacturer/manufacturer_product_view/product_view_dimension'));
-        $folder_name="product_thumb";
-    }
-    else{
-        $layered_navigation_dimension=explode("x",Mage::getStoreConfig('manufacturer/manufacturer_brand_list/manufacturer_list_dimension'));
-        $folder_name="large_thumb";
-    }
-    $width=229;
-    $height=91;
-    $productModel = Mage::getModel('catalog/product');
-    $attr = $productModel->getResource()->getAttribute("manufacturer");
-    $manufacturer_name = $attr->getSource()->getOptionText($manufacturer_id);
+$manufacturer_imge=$this->getmanufacturerimage();
+$legend = $this->getlegend();
+$list_page_flag=$this->getListPageFlag();
 ?>
-<img src="<?php echo Mage::helper('manufacturer')->getManufacturerUrlFrontend($manufacturer_name,$manufacturer_imge,$folder_name) ?>" alt="" class="manufacturer_image" title="<?php echo $manufacturer_name; ?>" />
+<?php 
+ $imageUrl = Mage::getBaseUrl('media')."Manufacturer/".$manufacturer_imge;
+                // path of the resized image to be saved
+                // here, the resized image is saved in media/resized folder
+                $imageResized = Mage::getBaseDir('media').DS."Manufacturer".DS."resized".DS.$manufacturer_imge;
+                $dirImg=Mage::getBaseDir().str_replace("/",DS,strstr($imageUrl,'/media'));
+                 
+                // resize image only if the image file exists and the resized image file doesn't exist
+                // the image is resized proportionally with the width/height 135px
+                if (!file_exists($imageResized) && file_exists($dirImg)) :
+                    $imageObj = new Varien_Image($dirImg);
+                    $imageObj->constrainOnly(false);
+                    $imageObj->keepAspectRatio(TRUE);
+                    $imageObj->keepFrame(false);
+                    $imageObj->backgroundColor(array(255,255,255));
+                    $imageObj->resize(229,91);
+                    $imageObj->save($imageResized);
+                endif;
+?>
+<img src="<?php echo Mage::getBaseUrl('media').'Manufacturer/resized/'.$manufacturer_imge ?>" alt="" title="<?php echo $legend; ?>" class="manufacturer_image" />
 

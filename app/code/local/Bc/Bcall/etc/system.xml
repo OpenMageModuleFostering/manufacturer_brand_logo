@@ -23,11 +23,10 @@
  */
 -->
 <config>
-    <modules>
-        <Bc_Bcall>
-            <active>true</active>
-            <codePool>local</codePool>
-			<version>1.0.15</version>
-        </Bc_Bcall>
-    </modules>
-</config> 
+	<tabs>
+        <biztech translate="label" module="bcall">
+            <label>Biztech</label>
+            <sort_order>250</sort_order>
+        </biztech>
+    </tabs>
+</config>
