@@ -1,0 +1,20 @@
+<?php
+    $manufacturer_imge=$this->getmanufacturerimage();
+    $list_page_flag=$this->getListPageFlag();
+    $manufacturer_id=$this->getmenufacturername();
+    if (!$list_page_flag){
+        $layered_navigation_dimension=explode("x",Mage::getStoreConfig('manufacturer/manufacturer_product_view/product_view_dimension'));
+        $folder_name="product_thumb";
+    }
+    else{
+        $layered_navigation_dimension=explode("x",Mage::getStoreConfig('manufacturer/manufacturer_brand_list/manufacturer_list_dimension'));
+        $folder_name="large_thumb";
+    }
+    $width=229;
+    $height=91;
+    $productModel = Mage::getModel('catalog/product');
+    $attr = $productModel->getResource()->getAttribute("manufacturer");
+    $manufacturer_name = $attr->getSource()->getOptionText($manufacturer_id);
+?>
+<img src="<?php echo Mage::helper('manufacturer')->getManufacturerUrlFrontend($manufacturer_name,$manufacturer_imge,$folder_name) ?>" alt="" class="manufacturer_image" title="<?php echo $manufacturer_name; ?>" />
+

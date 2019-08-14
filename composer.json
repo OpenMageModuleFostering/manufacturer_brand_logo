@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/manufacturer_brand_logo",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Our manufacturer extension allows merchants to upload brand logos and display on product pages",
+    "authors": [
+    {
+        "name": "Biztech",
+        "email": "sales@biztechconsultancy.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

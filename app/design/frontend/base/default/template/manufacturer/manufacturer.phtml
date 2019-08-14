@@ -1,0 +1,25 @@
+<?php
+    $maufacturers = Mage::getModel('manufacturer/manufacturer')->getCollection()->addFieldToFilter('status',Array('eq'=>1));    
+    $_columnCount=4;
+    $i=0;
+?>
+<div class="manufacturer-list">
+    <?php foreach($maufacturers as $manufacturer): ?>
+        <?php if(Mage::getModel('eav/entity_attribute_source_table')->setAttribute(Mage::getModel('eav/entity_attribute')->load(Mage::getModel('eav/entity_attribute')->getIdByCode('catalog_product',"manufacturer")))->getOptionText($manufacturer->getMenufecturerName())): ?>
+            <?php if ($i++%$_columnCount==0): ?>
+                <ul>
+                    <?php endif; ?>
+                <li>
+                    <a href="<?php echo $this->getBaseUrl()."catalogsearch/advanced/result/?manufacturer[]=".$manufacturer->getMenufecturerName() ?>">
+                        <?php echo $this->getLayout()->createBlock('core/template')->setmanufacturerimage($manufacturer->getFilename())->setListPageFlag(1)->setmenufacturername($manufacturer->getMenufecturerName())->setTemplate('manufacturer/manufacturer_resize.phtml')->toHtml(); ?>
+                    </a>
+                    <div class="manufacturer-name">
+                        <?php echo Mage::getModel('eav/entity_attribute_source_table')->setAttribute(Mage::getModel('eav/entity_attribute')->load(Mage::getModel('eav/entity_attribute')->getIdByCode('catalog_product',"manufacturer")))->getOptionText($manufacturer->getMenufecturerName()) ?>
+                    </div>
+                </li>
+                <?php if ($i%$_columnCount==0 && $i!=count($maufacturers)): ?>
+                </ul>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+</div>
