@@ -1,5 +1,4 @@
 <?php
-    Debugbreak();
     $installer = $this;
     $installer->startSetup();
     $installer->run("

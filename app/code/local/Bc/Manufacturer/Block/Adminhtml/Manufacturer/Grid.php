@@ -15,7 +15,7 @@ class Bc_Manufacturer_Block_Adminhtml_Manufacturer_Grid extends Mage_Adminhtml_B
   {
       $collection = Mage::getModel('manufacturer/manufacturer')->getCollection();
       $this->setCollection($collection);
-      $collection->getSelect()->join( array('eaov'=>'eav_attribute_option_value'), 'main_table.menufecturer_name = eaov.option_id and store_id=0', array('manufacturer_name'=>'eaov.value'));
+      $collection->getSelect()->join( array('eaov'=>Mage::getSingleton('core/resource')->getTableName('eav/attribute_option_value')), 'main_table.menufecturer_name = eaov.option_id and store_id=0', array('manufacturer_name'=>'eaov.value'));
       return parent::_prepareCollection();
   }
 
