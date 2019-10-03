@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Our manufacturer extension allows merchants to upload brand logos and display on product pages
